@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:mealapp/data/dummy_data.dart';
 import 'package:mealapp/models/category.dart';
 import 'package:mealapp/models/meal.dart';
 import 'package:mealapp/screens/meals_screens.dart';
@@ -9,16 +8,18 @@ class CategoryGridItem extends StatelessWidget {
     super.key,
     required this.category,
     required this.onToggleFavorite,
+    required this.availablrMeals,
   });
   final Category category;
   final void Function(Meal meal) onToggleFavorite;
+  final List<Meal> availablrMeals;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       //GestureDetector
       onTap: () {
-        final List<Meal> filterMeal = dummyMeals
+        final List<Meal> filterMeal = availablrMeals
             .where(
               (meal) => meal.categories.contains(category.id),
             )
@@ -27,7 +28,8 @@ class CategoryGridItem extends StatelessWidget {
           MaterialPageRoute(
             builder: (context) => MealsScreens(
               title: category.title,
-              meals: filterMeal, onToggleFavorite: onToggleFavorite,
+              meals: filterMeal,
+              onToggleFavorite: onToggleFavorite,
             ),
           ),
         );
