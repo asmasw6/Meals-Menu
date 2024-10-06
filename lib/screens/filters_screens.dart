@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:mealapp/components/main_drawer.dart';
-import 'package:mealapp/screens/tabs_screen.dart';
 
 class FiltersScreens extends StatefulWidget {
   const FiltersScreens({
@@ -16,8 +14,8 @@ class FiltersScreens extends StatefulWidget {
 enum Filter {
   glutenFree,
   lactoseFree,
-  Vegan,
-  Vegetarian,
+  vegan,
+  vegetarian,
 }
 
 class _FiltersScreensState extends State<FiltersScreens> {
@@ -31,8 +29,8 @@ class _FiltersScreensState extends State<FiltersScreens> {
     super.initState();
     _gluteenFreeFilter = widget.currentFilters[Filter.glutenFree]!;
     _lactoseFreeFilter = widget.currentFilters[Filter.lactoseFree]!;
-    _veganFreeFilter = widget.currentFilters[Filter.Vegan]!;
-    _vegetarianFreeFilter = widget.currentFilters[Filter.Vegetarian]!;
+    _veganFreeFilter = widget.currentFilters[Filter.vegan]!;
+    _vegetarianFreeFilter = widget.currentFilters[Filter.vegetarian]!;
 
   }
   @override
@@ -60,8 +58,8 @@ class _FiltersScreensState extends State<FiltersScreens> {
           Navigator.of(context).pop({
             Filter.glutenFree: _gluteenFreeFilter,
             Filter.lactoseFree: _lactoseFreeFilter,
-            Filter.Vegan: _veganFreeFilter,
-            Filter.Vegetarian: _vegetarianFreeFilter,
+            Filter.vegan: _veganFreeFilter,
+            Filter.vegetarian: _vegetarianFreeFilter,
           });
           return false;
         },

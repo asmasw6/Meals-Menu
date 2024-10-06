@@ -11,8 +11,8 @@ import 'package:mealapp/screens/meals_screens.dart';
 const kInintialFilter = {
   Filter.glutenFree: false,
   Filter.lactoseFree: false,
-  Filter.Vegan: false,
-  Filter.Vegetarian: false,
+  Filter.vegan: false,
+  Filter.vegetarian: false,
 };
 
 class TabsScreen extends StatefulWidget {
@@ -85,10 +85,10 @@ class _TabsScreenState extends State<TabsScreen> {
         if (_selectedFilters[Filter.lactoseFree]! && !meal.isLactoseFree) {
           return false;
         }
-        if (_selectedFilters[Filter.Vegan]! && !meal.isVegan) {
+        if (_selectedFilters[Filter.vegan]! && !meal.isVegan) {
           return false;
         }
-        if (_selectedFilters[Filter.Vegetarian]! && !meal.isVegetarian) {
+        if (_selectedFilters[Filter.vegetarian]! && !meal.isVegetarian) {
           return false;
         }
 

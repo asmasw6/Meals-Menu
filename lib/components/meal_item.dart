@@ -18,8 +18,7 @@ class MealItem extends StatelessWidget {
         return ["Challenging", Icons.battery_3_bar];
       case Complexity.hard:
         return ["Hard", Icons.battery_full];
-      default:
-        return ['Unknown', Icons.error];
+      //default:return ['Unknown', Icons.error];
     }
   }
 
@@ -31,8 +30,7 @@ class MealItem extends StatelessWidget {
         return ["Pricey", Icons.money];
       case Affordability.luxurious:
         return ["Luxurious", Icons.euro_symbol];
-      default:
-        return ['Unknown', Icons.error];
+      //default: return ['Unknown', Icons.error];
     }
   }
 
