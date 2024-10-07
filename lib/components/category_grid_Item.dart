@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:mealapp/models/category.dart';
 import 'package:mealapp/models/meal.dart';
@@ -7,11 +8,9 @@ class CategoryGridItem extends StatelessWidget {
   const CategoryGridItem({
     super.key,
     required this.category,
-    required this.onToggleFavorite,
     required this.availablrMeals,
   });
   final Category category;
-  final void Function(Meal meal) onToggleFavorite;
   final List<Meal> availablrMeals;
 
   @override
@@ -29,7 +28,6 @@ class CategoryGridItem extends StatelessWidget {
             builder: (context) => MealsScreens(
               title: category.title,
               meals: filterMeal,
-              onToggleFavorite: onToggleFavorite,
             ),
           ),
         );

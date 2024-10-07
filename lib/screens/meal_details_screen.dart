@@ -1,24 +1,43 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mealapp/models/meal.dart';
+import 'package:mealapp/providers/favorites_provider.dart';
 
-class MealDetailsScreen extends StatelessWidget {
+class MealDetailsScreen extends ConsumerWidget {
   const MealDetailsScreen({
     super.key,
     required this.meal,
-    required this.onToggleFavorite,
   });
   final Meal meal;
-  final void Function(Meal meal) onToggleFavorite;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final List<Meal> favoriteMeals = ref.watch(favoritesMealsProvider);
+    final bool isFavorite = favoriteMeals.contains(meal);
     return Scaffold(
       appBar: AppBar(
         title: Text(meal.title),
         actions: [
           IconButton(
-              onPressed: () => onToggleFavorite(meal),
-              icon: const Icon(Icons.star_rate_rounded))
+              onPressed: () {
+                // favoritesMealsProvider.notifier its like I find class favoritesMealsNotifier
+                final bool isAdded = ref
+                    .read(favoritesMealsProvider.notifier)
+                    .toggleMealFavoritesStatus(meal);
+
+                ScaffoldMessenger.of(context).clearSnackBars();
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text(isAdded
+                        ? "Marked as a favorite!"
+                        : "Meal is no longer a favorite."),
+                  ),
+                );
+              },
+              icon: Icon(
+                isFavorite ? Icons.star : Icons.star_border,
+                color: Colors.amber,
+              ))
         ],
       ),
       body: SingleChildScrollView(

@@ -1,100 +1,59 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:mealapp/providers/filters_provider.dart';
 
-class FiltersScreens extends StatefulWidget {
+class FiltersScreens extends ConsumerWidget {
   const FiltersScreens({
     super.key,
-    required this.currentFilters,
   });
-  final Map<Filter, bool> currentFilters;
 
   @override
-  State<FiltersScreens> createState() => _FiltersScreensState();
-}
+  Widget build(BuildContext context, WidgetRef ref) {
+    final Map<dynamic, bool> activeFilters = ref.watch(filterssProvider);
 
-enum Filter {
-  glutenFree,
-  lactoseFree,
-  vegan,
-  vegetarian,
-}
-
-class _FiltersScreensState extends State<FiltersScreens> {
-  bool _gluteenFreeFilter = false;
-  bool _lactoseFreeFilter = false;
-  bool _veganFreeFilter = false;
-  bool _vegetarianFreeFilter = false;
-
-@override
-  void initState() {
-    super.initState();
-    _gluteenFreeFilter = widget.currentFilters[Filter.glutenFree]!;
-    _lactoseFreeFilter = widget.currentFilters[Filter.lactoseFree]!;
-    _veganFreeFilter = widget.currentFilters[Filter.vegan]!;
-    _vegetarianFreeFilter = widget.currentFilters[Filter.vegetarian]!;
-
-  }
-  @override
-  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Your Filters"),
       ),
-      /*drawer: MainDrawer(
-        onSelectScreen: (identifier) {
-          Navigator.of(context).pop();
-          if (identifier == 'meals') {
-            Navigator.of(context).pushReplacement(
-              MaterialPageRoute(
-                builder: (context) => const TabsScreen(),
-              ),
-            );
-          }
-        },
-      ),*/
-      body: WillPopScope(
-        //canPop: true,
-        onWillPop: () async {
-          //await Future.delayed(Duration(milliseconds: 100));
-          Navigator.of(context).pop({
-            Filter.glutenFree: _gluteenFreeFilter,
-            Filter.lactoseFree: _lactoseFreeFilter,
-            Filter.vegan: _veganFreeFilter,
-            Filter.vegetarian: _vegetarianFreeFilter,
-          });
-          return false;
-        },
-        child: Column(
-          children: [
-            customSwitch(
-              context,
-              "Gluten-free",
-              "onlu include gluten-free meals",
-              _gluteenFreeFilter,
-              (value) => setState(() => _gluteenFreeFilter = value),
-            ),
-            customSwitch(
-              context,
-              "Lactose-free",
-              "onlu include lactose-free meals",
-              _lactoseFreeFilter,
-              (value) => setState(() => _lactoseFreeFilter = value),
-            ),
-            customSwitch(
-              context,
-              "Vegan",
-              "onlu include vegan meals",
-              _veganFreeFilter,
-              (value) => setState(() => _veganFreeFilter = value),
-            ),
-            customSwitch(
-              context,
-              "Vegetarian",
-              "onlu include vegetarian meals",
-              _vegetarianFreeFilter,
-              (value) => setState(() => _vegetarianFreeFilter = value),
-            ),
-          ],
-        ),
+      body: Column(
+        children: [
+          customSwitch(
+            context,
+            "Gluten-free",
+            "onlu include gluten-free meals",
+            activeFilters[Filter.glutenFree]!,
+            (value) => ref
+                .read(filterssProvider.notifier)
+                .setFilter(Filter.glutenFree, value),
+          ),
+          customSwitch(
+            context,
+            "Lactose-free",
+            "onlu include lactose-free meals",
+            activeFilters[Filter.lactoseFree]!,
+            (value) => ref
+                .read(filterssProvider.notifier)
+                .setFilter(Filter.lactoseFree, value),
+          ),
+          customSwitch(
+            context,
+            "Vegan",
+            "onlu include vegan meals",
+            activeFilters[Filter.vegan]!,
+            (value) => ref
+                .read(filterssProvider.notifier)
+                .setFilter(Filter.vegan, value),
+          ),
+          customSwitch(
+            context,
+            "Vegetarian",
+            "onlu include vegetarian meals",
+            activeFilters[Filter.vegetarian]!,
+            (value) => ref
+                .read(filterssProvider.notifier)
+                .setFilter(Filter.vegetarian, value),
+          ),
+        ],
       ),
     );
   }
