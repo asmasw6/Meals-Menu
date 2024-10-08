@@ -65,6 +65,7 @@ The detailed view of a selected meal, including the image, ingredients, and inst
 
 
 
+---
 
 
 
