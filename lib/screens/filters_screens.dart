@@ -20,7 +20,7 @@ class FiltersScreens extends ConsumerWidget {
           customSwitch(
             context,
             "Gluten-free",
-            "onlu include gluten-free meals",
+            "only include gluten-free meals",
             activeFilters[Filter.glutenFree]!,
             (value) => ref
                 .read(filterssProvider.notifier)
@@ -29,7 +29,7 @@ class FiltersScreens extends ConsumerWidget {
           customSwitch(
             context,
             "Lactose-free",
-            "onlu include lactose-free meals",
+            "only include lactose-free meals",
             activeFilters[Filter.lactoseFree]!,
             (value) => ref
                 .read(filterssProvider.notifier)
@@ -38,7 +38,7 @@ class FiltersScreens extends ConsumerWidget {
           customSwitch(
             context,
             "Vegan",
-            "onlu include vegan meals",
+            "only include vegan meals",
             activeFilters[Filter.vegan]!,
             (value) => ref
                 .read(filterssProvider.notifier)
@@ -47,7 +47,7 @@ class FiltersScreens extends ConsumerWidget {
           customSwitch(
             context,
             "Vegetarian",
-            "onlu include vegetarian meals",
+            "only include vegetarian meals",
             activeFilters[Filter.vegetarian]!,
             (value) => ref
                 .read(filterssProvider.notifier)

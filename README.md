@@ -14,9 +14,47 @@ Users can filter meals based on the following categories:
 Users can mark meals as their **favorites**, and those meals will be saved and easily accessible on a dedicated **Favorites Page**.
 
 
+### ScreenShots:
+
+#### 1. Home Screen
+<img src="screenshot/homepage.png" alt="Home Screen" />
+
+A view of the app's home screen displaying a list of meals with filtering options and navigation.
+
+---
+
+### 2. Drawer Menu
+<img src="screenshot/drawer.png" alt="Drawer Menu" />
+<img src="screenshot/Filter.png" alt="Drawer Menu" />
+
+The app's drawer includes two options:
+- **Meals**: Navigates to the meals menu where users can browse through all available meals.
+- **Filter**: Allows users to filter meals by different categories such as Gluten-Free, Lactose-Free, Vegan, and Vegetarian.
+
+---
+
+#### 3. Favorite Meals
+<img src="screenshot/favoritemeal.png" alt="Favorite Meals" />
+
+Users can mark meals as favorites and view them on the favorites page.
+
+---
+
+#### 4. Meals List
+<img src="sreenshot/meal list.png" alt="Meal Details" />
+
+The view displays a list of meals, with each item showcasing its preparation duration, complexity level, and affordability
+---  
+
+#### 5. Meal Details
+<img src="sreenshot/meal details.png" alt="Meal Details" />
+
+The detailed view of a selected meal, including the image, ingredients, and instructions.
 
 
-### Packages
+
+
+### Packages:
 - **flutter_riverpod:**  
   Riverpod is used to manage the application's state and provides a predictable way to handle changes such as filtering meals and managing favorite meals. Implemented in favorite meals, filter meals based on category, meals data, and the navigation bar. 
   
@@ -33,7 +71,7 @@ Users can mark meals as their **favorites**, and those meals will be saved and e
 
 
 
-## Getting Started
+#### Getting Started
 
 This project is a starting point for a Flutter application.
 
