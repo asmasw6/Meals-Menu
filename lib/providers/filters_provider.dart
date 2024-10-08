@@ -8,7 +8,7 @@ enum Filter {
   vegetarian,
 }
 
-class FilterssNotifier extends StateNotifier<Map<dynamic, bool>> {
+class FilterssNotifier extends StateNotifier< Map<dynamic, bool>> {
   FilterssNotifier()
       : super({
           Filter.glutenFree: false,
@@ -16,9 +16,9 @@ class FilterssNotifier extends StateNotifier<Map<dynamic, bool>> {
           Filter.vegan: false,
           Filter.vegetarian: false,
         });
-  // craete fuction emulate the toogleMealFilters in tabes Screen
 
-  void setFilters(Map<dynamic, bool> chosenFilters) {
+  // -- > craete function emulate the toogleMealFilters in tabes Screen
+  void setFilters( Map<dynamic, bool> chosenFilters) {
     state = chosenFilters;
   }
 

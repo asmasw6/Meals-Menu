@@ -1,5 +1,4 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:mealapp/providers/meal_provider.dart';
 
 class NavBarNotifier extends StateNotifier<int> {
   NavBarNotifier() : super(0);

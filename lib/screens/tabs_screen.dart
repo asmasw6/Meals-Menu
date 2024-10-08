@@ -22,6 +22,8 @@ class TabsScreen extends ConsumerWidget {
     // ref.watch(provider) for read the value and change the valuuee then is best usage
     final List<Meal> availablrMeals = ref.watch(FilteredMealsProvider);
     final List<Meal> fovoriteMeal = ref.watch(favoritesMealsProvider);
+    final int selectedPageIndex = ref.watch(navBarProvider);
+
     final List<Widget> pages = [
       CategoriesScreen(
         availablrMeals: availablrMeals,
@@ -30,8 +32,6 @@ class TabsScreen extends ConsumerWidget {
         meals: fovoriteMeal,
       ), // Make sure you have a FavoritesScreen widget
     ];
-
-    final int selectedPageIndex = ref.watch(navBarProvider);
 
     void _setScreen(String identifier) {
       Navigator.of(context).pop();

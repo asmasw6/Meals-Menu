@@ -13,7 +13,7 @@ class MealDetailsScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final List<Meal> favoriteMeals = ref.watch(favoritesMealsProvider);
-    final bool isFavorite = favoriteMeals.contains(meal);
+    final bool isFavorite = favoriteMeals.contains(meal); // for icon shape
     return Scaffold(
       appBar: AppBar(
         title: Text(meal.title),
@@ -23,7 +23,7 @@ class MealDetailsScreen extends ConsumerWidget {
                 // favoritesMealsProvider.notifier its like I find class favoritesMealsNotifier
                 final bool isAdded = ref
                     .read(favoritesMealsProvider.notifier)
-                    .toggleMealFavoritesStatus(meal);
+                    .toggleMealFavoritesStatus(meal); // boolean return 
 
                 ScaffoldMessenger.of(context).clearSnackBars();
                 ScaffoldMessenger.of(context).showSnackBar(
