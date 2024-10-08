@@ -43,16 +43,18 @@ class MealItem extends StatelessWidget {
       clipBehavior: Clip.hardEdge, // depend on above properties,
       elevation: 2,
       child: InkWell(
-              onTap: () => onSelectMeal(meal),
-    
+        onTap: () => onSelectMeal(meal),
         child: Column(
           children: [
             Stack(
               children: [
                 //Interstinng -->>>>
-                FadeInImage(
-                  placeholder: MemoryImage(kTransparentImage),
-                  image: NetworkImage(meal.imageUrl),
+                Hero(
+                  tag: meal.id,
+                  child: FadeInImage(
+                    placeholder: MemoryImage(kTransparentImage),
+                    image: NetworkImage(meal.imageUrl),
+                  ),
                 ),
                 Positioned(
                   bottom: 0,

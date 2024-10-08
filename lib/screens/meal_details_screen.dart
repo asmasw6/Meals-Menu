@@ -23,7 +23,7 @@ class MealDetailsScreen extends ConsumerWidget {
                 // favoritesMealsProvider.notifier its like I find class favoritesMealsNotifier
                 final bool isAdded = ref
                     .read(favoritesMealsProvider.notifier)
-                    .toggleMealFavoritesStatus(meal); // boolean return 
+                    .toggleMealFavoritesStatus(meal); // boolean return
 
                 ScaffoldMessenger.of(context).clearSnackBars();
                 ScaffoldMessenger.of(context).showSnackBar(
@@ -34,20 +34,31 @@ class MealDetailsScreen extends ConsumerWidget {
                   ),
                 );
               },
-              icon: Icon(
-                isFavorite ? Icons.star : Icons.star_border,
-                color: Colors.amber,
+              icon: AnimatedSwitcher(
+                duration: const Duration(seconds: 2),
+                transitionBuilder: (child, animation) => RotationTransition(
+                  turns: Tween<double>(begin: 0.8, end: 1).animate(animation),
+                  child: child,
+                ),
+                child: Icon(
+                  isFavorite ? Icons.star : Icons.star_border,
+                  color: Colors.amber,
+                  key: ValueKey(isFavorite),
+                ),
               ))
         ],
       ),
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Image.network(
-              meal.imageUrl,
-              height: 300,
-              width: double.infinity,
-              fit: BoxFit.scaleDown,
+            Hero(
+              tag: meal.id,
+              child: Image.network(
+                meal.imageUrl,
+                height: 300,
+                width: double.infinity,
+                fit: BoxFit.scaleDown,
+              ),
             ),
             const SizedBox(
               height: 14,
