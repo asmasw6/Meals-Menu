@@ -39,13 +39,13 @@ Users can mark meals as favorites and view them on the favorites page.
 
 
 #### 4. Meals List
-<img src="lib/sreenshot/meallist.png" alt="Meal list"  width="300"/>
+<img src="lib/screenshot/meallist.png" alt="Meal list"  width="300"/>
 
 The view displays a list of meals, with each item showcasing its preparation duration, complexity level, and affordability
 
 
 #### 5. Meal Details
-<img src="lib/sreenshot/mealdetails.png" alt="Meal Details" width="300"/>
+<img src="lib/screenshot/mealdetails.png" alt="Meal Details" width="300"/>
 
 The detailed view of a selected meal, including the image, ingredients, and instructions.
 
