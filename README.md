@@ -18,14 +18,14 @@ Users can mark meals as their **favorites**, and those meals will be saved and e
 ### ScreenShots:
 
 #### 1. Home Screen
-<img src="lib/screenshot/homepage.png" alt="Home Screen" />
+<img src="lib/screenshot/homepage.png" alt="Home Screen" width="300" />
 
 A view of the app's home screen displaying a list of meals with filtering options and navigation.
 
 
 #### 2. Drawer Menu
-<img src="lib/screenshot/drawer.png" alt="Drawer Menu" />
-<img src="lib/screenshot/Filter.png" alt="Drawer Menu" />
+<img src="lib/screenshot/drawer.png" alt="Drawer Menu" width="300"/>
+<img src="lib/screenshot/Filter.png" alt="Drawer Menu" width="300" />
 
 The app's drawer includes two options:
 - **Meals**: Navigates to the meals menu where users can browse through all available meals.
@@ -33,19 +33,19 @@ The app's drawer includes two options:
 
 
 #### 3. Favorite Meals
-<img src="lib/screenshot/favoritemeal.png" alt="Favorite Meals" />
+<img src="lib/screenshot/favoritemeal.png" alt="Favorite Meals" width="300" />
 
 Users can mark meals as favorites and view them on the favorites page.
 
 
 #### 4. Meals List
-<img src="lib/sreenshot/meal list.png" alt="Meal list" />
+<img src="lib/sreenshot/meallist.png" alt="Meal list"  width="300"/>
 
 The view displays a list of meals, with each item showcasing its preparation duration, complexity level, and affordability
 
 
 #### 5. Meal Details
-<img src="lib/sreenshot/meal details.png" alt="Meal Details" />
+<img src="lib/sreenshot/mealdetails.png" alt="Meal Details" width="300"/>
 
 The detailed view of a selected meal, including the image, ingredients, and instructions.
 
